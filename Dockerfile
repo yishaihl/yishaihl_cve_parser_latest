@@ -22,11 +22,12 @@ RUN apt-get update && apt-get install -y  python-pip
 RUN pip install -r requirements.txt
 RUN apt-get install -y software-properties-common
 RUN go get -u cloud.google.com/go/storage
+WORKDIR /app/app
 RUN go run download_cve.go
 RUN go run unzip_file.go
 WORKDIR /app/CVE
 RUN python cve.py jenkins 
-WORKDIR /app
+WORKDIR /app/app
 RUN go run upload_cve_to_bucket.go
 # Command to run the executable
 #CMD ["./main"]
