@@ -12,7 +12,7 @@ import (
 
 func main() {
 
-    files, err := Unzip("nvdcve-1.0-recent.json.zip", "/Users/yishaihl/Documents/SRE_Darillium/go-docker/")
+    files, err := Unzip("nvdcve-1.0-recent.json.zip", "/app/app/CVE")
     if err != nil {
         log.Fatal(err)
     }
