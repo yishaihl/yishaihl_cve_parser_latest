@@ -9,10 +9,6 @@ ENV PATH $GOPATH/bin:$GOROOT/bin:$PATH
 # Set the Current Working Directory inside the container
 WORKDIR /app
 
-# Set environment variables
-COPY . .
-RUN ["chmod", "+x", "./env.sh"]
-
 # Build the Go app
 RUN apt-get update && \
     apt-get install -y wget && \
@@ -28,12 +24,8 @@ RUN wget https://dl.google.com/go/go1.12.7.linux-amd64.tar.gz && \
     tar -xvf go1.12.7.linux-amd64.tar.gz && \
     rm -rf go1.12.7.linux-amd64.tar.gz
 
+COPY . . 
 RUN mv go /usr/local
-
-# RUN apt-get update && apt-get install -y  python-pip
-
-# RUN pip install -r requirements.txt
-# RUN apt-get install -y software-properties-common
 
 RUN go get -u cloud.google.com/go/storage
 
@@ -43,12 +35,5 @@ RUN go run download_cve.go
 RUN go run unzip_file.go
 RUN python cve.py jenkins 
 
-# RUN go run upload_cve_to_bucket.go
-
 # Command to run the executable
-
-
 CMD ["/bin/bash"]
-#CMD ["./main"]
-#CMD ["./second"]
-#CMD ["./third"]

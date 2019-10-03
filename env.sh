@@ -1,4 +1,0 @@
-export GOLANG_SAMPLES_BUCKET=dwbi878_yishaihl
-export GOLANG_SAMPLES_PROJECT_ID=yishaihl32-gke
-export GOOGLE_APPLICATION_CREDENTIALS=/cred/GKE-Cluster-b3f95e8d875b.json
-
