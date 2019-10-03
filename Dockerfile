@@ -9,6 +9,9 @@ ENV PATH $GOPATH/bin:$GOROOT/bin:$PATH
 # Set the Current Working Directory inside the container
 WORKDIR /app
 
+# Set environment variables
+COPY . .
+RUN /env.sh
 
 # Build the Go app
 RUN apt-get update && \
@@ -24,8 +27,6 @@ RUN pip install -r requirements.txt
 RUN wget https://dl.google.com/go/go1.12.7.linux-amd64.tar.gz && \
     tar -xvf go1.12.7.linux-amd64.tar.gz && \
     rm -rf go1.12.7.linux-amd64.tar.gz
-
-COPY . .
 
 RUN mv go /usr/local
 
