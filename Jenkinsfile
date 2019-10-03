@@ -11,8 +11,8 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        // app = docker.build("yishaihl/jenkins_test")
-	sh 'docker-compose build'
+        // app = docker.build("yishaihl/build_docker")
+	sh 'docker-compose up'
     }
 
     stage('Test image') {
