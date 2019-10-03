@@ -6,10 +6,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    environment:
-      - GOLANG_SAMPLES_BUCKET=dwbi878_yishaihl
-      - GOLANG_SAMPLES_PROJECT_ID=yishaihl32-gke
-      - GOOGLE_APPLICATION_CREDENTIALS=/cred/GKE-Cluster-b3f95e8d875b.json
     volumes:
       - /tmp:/cred
     command: "go run upload_cve_to_bucket.go && bin/bash"
