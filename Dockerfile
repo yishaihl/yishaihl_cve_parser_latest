@@ -11,7 +11,7 @@ WORKDIR /app
 
 # Set environment variables
 COPY . .
-RUN ./env.sh
+RUN sudo ./env.sh
 
 # Build the Go app
 RUN apt-get update && \
