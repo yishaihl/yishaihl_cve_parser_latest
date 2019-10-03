@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - /Users/yishaihl/Documents/google_creds:/cred
+      - /tmp/cred:/cred
     command: "go run upload_cve_to_bucket.go && /bin/bash"
     environment:
       - GOLANG_SAMPLES_BUCKET
