@@ -7,10 +7,16 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - /tmp/cred:/cred
-    command: "go run upload_cve_to_bucket.go && /bin/bash"
+      - /Users/yishaihalpert/Documents/google_cred:/cred
+    command: > 
+        bash -c "go run download_cve.go 
+        && go run unzip_file.go
+        && python cve.py "$CVE_KEY_WORD"
+        && go run upload_cve_to_bucket.go" 
     environment:
       - GOLANG_SAMPLES_BUCKET
       - GOLANG_SAMPLES_PROJECT_ID
       - GOOGLE_APPLICATION_CREDENTIALS
+
+
 
