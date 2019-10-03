@@ -7,6 +7,5 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      # - ${pwd}/app:/yishai
-      - /Users/yishaihl/Documents/google_creds:/cred
+      - /tmp:/cred
     command: "go run upload_cve_to_bucket.go && bin/bash"
