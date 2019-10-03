@@ -7,7 +7,7 @@ ENV GOROOT /usr/local/go
 ENV GOPATH $HOME/app
 ENV PATH $GOPATH/bin:$GOROOT/bin:$PATH
 # Set the Current Working Directory inside the container
-WORKDIR /app/app
+WORKDIR /app
 
 # Set environment variables
 COPY . .
