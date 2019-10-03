@@ -3,6 +3,10 @@ services:
   sre_darillium:
     container_name: sre_darillium
     image: sre/sre_darillium:latest
+    environment:
+      - GOLANG_SAMPLES_BUCKET=dwbi878_yishaihl
+      - GOLANG_SAMPLES_PROJECT_ID=yishaihl32-gke
+      - GOOGLE_APPLICATION_CREDENTIALS=/cred/GKE-Cluster-b3f95e8d875b.json
     build:
       context: .
       dockerfile: Dockerfile
