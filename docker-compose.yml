@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  sre_darillium:
+    container_name: sre_darillium
+    image: sre/sre_darillium:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      # - ${pwd}/app:/yishai
+      - /Users/yishaihl/Documents/google_creds:/cred
+    command: "go run upload_cve_to_bucket.go && bin/bash"
