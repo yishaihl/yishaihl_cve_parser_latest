@@ -7,5 +7,5 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - /tmp:/cred
+      - /tmp/cred:/cred
     command: "go run upload_cve_to_bucket.go && bin/bash"
