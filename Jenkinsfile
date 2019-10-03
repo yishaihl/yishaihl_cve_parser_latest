@@ -12,7 +12,7 @@ node {
          * docker build on the command line */
 
         // app = docker.build("yishaihl/build_docker")
-	sh 'docker-compose up'
+	sh 'docker-compose build'
     }
 
     stage('Test image') {
